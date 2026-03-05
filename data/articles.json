@@ -1,0 +1,51 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "春天",
+      "source": "示例范文",
+      "segments": [
+        {
+          "text": "春天来了，花园里的花都开了。",
+          "blanks": [
+            {"pos": 4, "char": "，", "hint": "逗号", "punctuation_type": "逗号"},
+            {"pos": 13, "char": "。", "hint": "句号", "punctuation_type": "句号"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "标点用法示例",
+      "source": "GB/T 15834 标点符号用法",
+      "segments": [
+        {
+          "text": "句子内部并列词语之间用顿号，例如：苹果、香蕉、橙子。",
+          "blanks": [
+            {"pos": 13, "char": "，", "hint": "逗号", "punctuation_type": "逗号"},
+            {"pos": 16, "char": "：", "hint": "冒号", "punctuation_type": "冒号"},
+            {"pos": 19, "char": "、", "hint": "顿号", "punctuation_type": "顿号"},
+            {"pos": 22, "char": "、", "hint": "顿号", "punctuation_type": "顿号"},
+            {"pos": 25, "char": "。", "hint": "句号", "punctuation_type": "句号"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "分号与复句",
+      "source": "示例",
+      "segments": [
+        {
+          "text": "语言，人们用来抒情达意；文字，人们用来记言记事。",
+          "blanks": [
+            {"pos": 2, "char": "，", "hint": "逗号", "punctuation_type": "逗号"},
+            {"pos": 11, "char": "；", "hint": "分号", "punctuation_type": "分号"},
+            {"pos": 14, "char": "，", "hint": "逗号", "punctuation_type": "逗号"},
+            {"pos": 23, "char": "。", "hint": "句号", "punctuation_type": "句号"}
+          ]
+        }
+      ]
+    }
+  ]
+}
