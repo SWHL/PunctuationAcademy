@@ -5,7 +5,7 @@
 ## 功能
 
 - **题目来源**：内置规范段落；或上传 TXT、粘贴范文（支持从人民日报等复制）。粘贴后点击「解析并加入题库」会清空输入框。
-- **题库规则**：若已上传 / 粘贴过题目，则**仅使用用户题库**；否则使用系统自带题目。题目做完后提示「现有题目均已做完」，可点击「再来一轮」重新练习。
+- **题库规则**：若已上传 / 粘贴过题目，则 **仅使用用户题库**；否则使用系统自带题目。题目做完后提示「现有题目均已做完」，可点击「再来一轮」重新练习。
 - **解析方式**：
     - 显式标注：`【标点】` 表示挖空。
     - 纯段落：按句号分句，**用户上传时该句内所有标点全部挖空**，保证一题一句。
@@ -17,36 +17,41 @@
 纯前端，需通过 HTTP 访问（以便加载 `data/articles.json`）。
 
 ```bash
-cd web
 python -m http.server 8080
 ```
 
-浏览器打开 <http://localhost:8080。>
+浏览器打开 <http://localhost:8080>
 
-**部署 GitHub Pages**：将 `web/` 目录内容发布为静态站点即可。无构建步骤，无额外依赖。
+**部署 GitHub Pages**：将内容发布为静态站点即可。无构建步骤，无额外依赖。
+
+## 效果
+
+<div align="center">
+    <img src="https://github.com/SWHL/PunctuationAcademy/releases/download/v0.0.1/demo.gif">
+</div>
 
 ## 项目结构
 
 ```text
 PunctuationAcademy/
+├── app.js
+├── data
+│   └── articles.json
+├── index.html
+├── LICENSE
+├── logic.js
 ├── README.md
-├── web/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js          # 界面与事件
-│   ├── logic.js        # 纯逻辑（解析、对比、结果 HTML）
-│   ├── data/
-│   │   └── articles.json
-│   └── tests/
-│       └── logic.test.js
+├── style.css
+└── tests
+    └── logic.test.js
 ```
 
 ## 测试
 
 ```bash
-node --test web/tests/logic.test.js
+node --test tests/logic.test.js
 ```
 
 ## 技术栈
 
-HTML、CSS、JavaScript，静态资源，可部署至 GitHub Pages 等静态托管。
+HTML, CSS, JavaScript，静态资源，可部署至 GitHub Pages 等静态托管。
