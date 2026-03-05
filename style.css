@@ -1,0 +1,441 @@
+/* 标点学堂 · Quizlet 风格：纯静态 CSS，适合 GitHub Pages */
+
+:root {
+  /* Quizlet 系配色 */
+  --quizlet-blue: #4255ff;
+  --quizlet-blue-hover: #3142cc;
+  --quizlet-dark: #303545;
+  --quizlet-dark-soft: #586380;
+  --quizlet-bg: #f6f7fb;
+  --quizlet-card: #ffffff;
+  --quizlet-border: #e4e6f1;
+  --quizlet-success: #2fc86e;
+  --quizlet-wrong: #ffcd1f;
+  --quizlet-link: #4255ff;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-card: 0 2px 8px rgba(48, 53, 69, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(48, 53, 69, 0.12);
+  --transition: 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--quizlet-dark);
+  background: var(--quizlet-bg);
+  min-height: 100vh;
+}
+
+/* ========== 顶部品牌区 ========== */
+.header {
+  background: var(--quizlet-card);
+  padding: 1.75rem 1rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--quizlet-border);
+  box-shadow: var(--shadow-card);
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: var(--quizlet-dark);
+}
+
+.header h1 .accent {
+  color: var(--quizlet-blue);
+}
+
+.subtitle {
+  color: var(--quizlet-dark-soft);
+  font-size: 0.95rem;
+  margin: 0.5em 0 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== 主内容区：左右布局 ========== */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2rem;
+}
+
+.main.layout-two-column {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.main .source-panel {
+  position: sticky;
+  top: 1rem;
+}
+
+.main .practice-panel {
+  min-width: 0;
+}
+
+/* ========== 卡片面板（Quizlet 式圆角白卡） ========== */
+.panel {
+  background: var(--quizlet-card);
+  border: 1px solid var(--quizlet-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--transition);
+}
+
+.panel:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.panel h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--quizlet-dark);
+  letter-spacing: -0.01em;
+}
+
+/* ========== 题目来源区 ========== */
+.source-panel .file-label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.file-label-text {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--quizlet-dark-soft);
+  margin-bottom: 0.35rem;
+}
+
+.file-input {
+  font-size: 0.9rem;
+  color: var(--quizlet-dark-soft);
+  padding: 0.4rem 0;
+}
+
+.file-input::file-selector-button {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--quizlet-blue);
+  background: rgba(66, 85, 255, 0.08);
+  border: 1px solid var(--quizlet-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.file-input::file-selector-button:hover {
+  background: rgba(66, 85, 255, 0.15);
+  color: var(--quizlet-blue-hover);
+}
+
+.or {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--quizlet-dark-soft);
+}
+
+.paste-box {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--quizlet-dark);
+  background: var(--quizlet-bg);
+  border: 1px solid var(--quizlet-border);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 0.75rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.paste-box::placeholder {
+  color: var(--quizlet-dark-soft);
+  opacity: 0.8;
+}
+
+.paste-box:focus {
+  outline: none;
+  border-color: var(--quizlet-blue);
+  box-shadow: 0 0 0 3px rgba(66, 85, 255, 0.18);
+}
+
+.upload-msg {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--quizlet-dark-soft);
+  min-height: 1.5em;
+}
+
+.small-hint {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--quizlet-border);
+  color: var(--quizlet-dark-soft);
+  font-size: 0.85rem;
+}
+
+.small-hint a {
+  color: var(--quizlet-link);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.small-hint a:hover {
+  text-decoration: underline;
+}
+
+/* ========== 练习区 ========== */
+.stats {
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+  color: var(--quizlet-dark-soft);
+  font-weight: 500;
+}
+
+.practice-panel .label {
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--quizlet-dark);
+}
+
+.question-wrap {
+  margin-bottom: 0.75rem;
+  min-height: 2.5rem;
+  width: 100%;
+}
+
+.all-done-hint {
+  color: var(--quizlet-dark-soft);
+  font-size: 1rem;
+  padding: 0.75rem 0;
+}
+
+/* 题干：左对齐，只有内容够长才换行，不强行拉满右侧 */
+.question-block {
+  width: 100%;
+}
+
+.question-block .question-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.4rem;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 2.2;
+  word-break: keep-all;
+  color: var(--quizlet-dark);
+  width: 100%;
+}
+
+.question-block .question-line .q-segment {
+  display: inline;
+}
+
+/* 兼容无 .question-block 的旧占位（如“暂无题目”） */
+.question-wrap > .question-line {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.2rem 0.4rem;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 2.2;
+  word-break: keep-all;
+  color: var(--quizlet-dark);
+}
+
+.question-line .blank-input {
+  width: 2.6em;
+  min-width: 2.6em;
+  padding: 0.35rem 0.4rem;
+  font-size: 1.05rem;
+  text-align: center;
+  color: var(--quizlet-dark);
+  background: var(--quizlet-bg);
+  border: 2px solid var(--quizlet-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.question-line .blank-input::placeholder {
+  color: var(--quizlet-dark-soft);
+  opacity: 0.6;
+}
+
+.question-line .blank-input:focus {
+  outline: none;
+  border-color: var(--quizlet-blue);
+  box-shadow: 0 0 0 3px rgba(66, 85, 255, 0.18);
+}
+
+.answer-hint {
+  color: var(--quizlet-dark-soft);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== 按钮（Quizlet 主色） ========== */
+.btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition), transform 0.1s ease, box-shadow var(--transition);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--quizlet-blue);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(66, 85, 255, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--quizlet-blue-hover);
+  box-shadow: 0 4px 12px rgba(66, 85, 255, 0.3);
+}
+
+.btn-secondary {
+  background: var(--quizlet-bg);
+  color: var(--quizlet-dark);
+  border: 2px solid var(--quizlet-border);
+}
+
+.btn-secondary:hover {
+  background: #eef0f5;
+  border-color: var(--quizlet-dark-soft);
+}
+
+/* ========== 结果区 ========== */
+.result {
+  margin-top: 0.5rem;
+}
+
+.no-question,
+.submit-summary {
+  color: var(--quizlet-dark-soft);
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+}
+
+.submit-summary .correct-num {
+  color: var(--quizlet-success);
+  font-weight: 700;
+}
+
+.result-card {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--quizlet-bg);
+  border: 1px solid var(--quizlet-border);
+  box-shadow: var(--shadow-card);
+}
+
+.result-section {
+  margin-bottom: 1.25rem;
+}
+
+.result-section:last-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.result-label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--quizlet-dark);
+}
+
+.correct-label {
+  color: var(--quizlet-success);
+}
+
+.result-text {
+  margin: 0;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: var(--quizlet-dark);
+}
+
+.result-hint {
+  margin: 0.6rem 0 0;
+  color: var(--quizlet-dark-soft);
+  font-size: 0.85rem;
+}
+
+.wrong-char {
+  background: var(--quizlet-wrong);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+  .main.layout-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .main .source-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .main {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .panel {
+    padding: 1.25rem 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

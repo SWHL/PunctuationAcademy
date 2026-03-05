@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标点学堂 · Punctuation Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1><span class="accent">标点学堂</span> · Punctuation Academy</h1>
+    <p class="subtitle">使用内置规范文章或上传 TXT / 粘贴范文，在空位处按顺序填入正确标点</p>
+  </header>
+
+  <main class="main layout-two-column">
+    <aside class="panel source-panel">
+      <h2>📂 题目来源</h2>
+      <label class="file-label">
+        <span class="file-label-text">上传 TXT（可选）</span>
+        <input type="file" id="file-input" accept=".txt" class="file-input">
+      </label>
+      <p class="or">或粘贴范文</p>
+      <textarea id="paste-box" class="paste-box" placeholder="将范文粘贴到此处，支持整段复制…" rows="4"></textarea>
+      <button type="button" id="btn-paste" class="btn btn-secondary">解析并加入题库</button>
+      <p id="upload-msg" class="upload-msg" aria-live="polite"></p>
+      <p class="small-hint">可从 <a href="https://www.people.com.cn/" target="_blank" rel="noopener noreferrer">人民日报</a> 选择范文，复制后粘贴到上方框内即可。</p>
+    </aside>
+
+    <section class="panel practice-panel">
+      <h2>✏️ 练习区</h2>
+      <p id="stats" class="stats" aria-live="polite"></p>
+      <p class="label">题目（在空位处填入标点）</p>
+      <p id="answer-hint" class="answer-hint" style="display: none;"></p>
+      <div id="question-wrap" class="question-wrap"></div>
+      <div class="actions">
+        <button type="button" id="btn-submit" class="btn btn-primary">提交答案</button>
+        <button type="button" id="btn-start" class="btn btn-primary">开始 / 换一题</button>
+        <button type="button" id="btn-reset-round" class="btn btn-secondary" style="display: none;">再来一轮</button>
+      </div>
+      <div id="result" class="result"></div>
+    </section>
+  </main>
+
+  <script src="logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
